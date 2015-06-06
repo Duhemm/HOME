@@ -103,3 +103,6 @@ source /Users/martin/Documents/Projects/zsh-users/zsh-syntax-highlighting/zsh-sy
 
 # Terminal notification for long running command
 source /Users/martin/Documents/Projects/marzocchi/zsh-notify/notify.plugin.zsh
+
+# My own completion scripts
+fpath=($PROJECTS/Duhemm/scripts/completions $fpath) 
