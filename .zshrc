@@ -1,7 +1,6 @@
 autoload -Uz compinit colors vcs_info
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+. ~/.mini-env
 
 colors
 
@@ -44,28 +43,15 @@ alias switchj6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.
 alias switchj7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s A Current && popd"
 alias switchj8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s 1.8 Current && popd"
 
-# Use coreutils rather than OS X version of utils
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-# My projects...
-export PROJECTS="$HOME/Documents/Projects"
-
-# Sublime text
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 # Scala related
-export PATH="$HOME/Applications/scala/scala-latest/bin:$PATH"
-export PATH="$HOME/Applications/sbt:$PATH"
-export PATH="$HOME/Applications/activator/activator-latest:$PATH"
-export PATH="$HOME/Applications/play/play-latest:$PATH"
 alias scala="scala -Dscala.color"
 alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/target/sbt-launch-0.13.8-SNAPSHOT.jar"
 alias resetsbt="rm -rf ~/.sbt/boot/ && rm -rf ~/.ivy2/cache/org.scala-sbt/compiler-interface-bin_2.11.*"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
 alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
-alias pmscala="scala -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:/Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp /Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -Dscala.color"
+alias pmscala="scala -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:/Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp /Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:. -Dscala.color"
 alias pmscalac="scalac -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:/Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp /Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:sandbox:."
 
 # Git prompt
