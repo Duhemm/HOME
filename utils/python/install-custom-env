@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+destination=$(python -c "from distutils.sysconfig import *; print(get_python_lib())")
+
+sudo cp custom_env.py "$destination"
