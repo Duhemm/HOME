@@ -5,8 +5,8 @@ autoload -Uz compinit colors vcs_info
 colors
 
 # Completion
-fpath=($PROJECTS/Duhemm/scripts/completions $fpath) 
-fpath=(/Users/martin/Documents/Projects/zsh-users/zsh-completions/src $fpath)
+fpath=($HOME/utils/completions $fpath)
+fpath=($PROJECTS/zsh-users/zsh-completions/src $fpath)
 compinit
 setopt complete_in_word
 setopt completealiases
@@ -19,7 +19,7 @@ setopt prompt_subst correct
 SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (Yes [y], No [n], Abort [a], Edit [e]): "
 
 # History
-HISTFILE="/Users/martin/.zsh_history"
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1024
 SAVEHIST=1024
 setopt hist_ignore_all_dups
@@ -34,11 +34,11 @@ bindkey '\e[B' history-search-forward
 
 # Various aliases
 alias -g ...="../.."
-alias cdp=". /Users/martin/Scripts/cdp"
+alias cdp=". $SCRIPTS/cdp"
 alias ls="ls --color=auto"
-alias editprofile="subl -n $HOME/.zshrc"
+alias editprofile="vim -n $HOME/.zshrc"
 alias reloadprofile="source $HOME/.zshrc"
-alias editscripts="subl $HOME/Scripts"
+alias editscripts="cd $SCRIPTS/.. && vim"
 alias grep="grep --color=auto"
 alias switchj6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s CurrentJDK Current && popd"
 alias switchj7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s A Current && popd"
@@ -57,7 +57,7 @@ alias pmscalac="scalac -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradi
 
 # Git prompt
 export GIT_PROMPT_EXECUTABLE="haskell"
-source /Users/martin/Documents/Projects/olivierverdier/zsh-git-prompt/zshrc.sh
+source $PROJECTS/olivierverdier/zsh-git-prompt/zshrc.sh
 PROMPT='$(git_super_status)%{$fg[red]%}%1~%{$reset_color%} %{$fg[white]%}❯%{$reset_color%} '
 RPROMPT='%{$fg_bold[red]%}%T%{$reset_color%}'
 
@@ -86,7 +86,7 @@ alias hstop="/usr/local/Cellar/hadoop/2.7.0/sbin/stop-yarn.sh;/usr/local/Cellar/
 alias sshell="HADOOP_CONF_DIR=/usr/local/Cellar/hadoop/2.7.0/libexec/etc/hadoop spark-shell --master yarn"
 
 # Syntax highlighting
-source /Users/martin/Documents/Projects/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PROJECTS/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Terminal notification for long running command
-source /Users/martin/Documents/Projects/marzocchi/zsh-notify/notify.plugin.zsh
+source $PROJECTS/marzocchi/zsh-notify/notify.plugin.zsh

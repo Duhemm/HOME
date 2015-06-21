@@ -1,0 +1,23 @@
+#compdef cdp
+
+_cdp() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments \
+        '1: :->authors'\
+        '2: :->projects'\
+        '*: :->end'
+
+    case $state in
+    authors)
+        compadd "$@" $(ls $PROJECTS $PROJECTS/Duhemm)
+    ;;
+    projects)
+        compadd "$@" $(ls "$PROJECTS/$words[2]")
+    ;;
+    *)
+    esac
+}
+
+_cdp "$@"

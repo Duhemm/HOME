@@ -1,0 +1,24 @@
+#!/bin/zsh
+source "$(dirname $0)/common.sh"
+
+IN="$*"
+#parts=(${IN// / })
+parts=(${(s: :)IN})
+name=${parts[1]}
+description=${parts[@]:1}
+
+cp -a "$TEMPLATES/default-scala-project" "$PROJECTS/$MY_USERNAME/$name"
+
+pushd "$PROJECTS/$MY_USERNAME/$name" > /dev/null
+
+buildFile="$PROJECTS/$MY_USERNAME/$name/Build.sbt"
+
+sed -e "s/\[NAME\]/$name/g" "$buildFile" > "$buildFile.tmp"
+sed -e "s/\[DESCRIPTION\]/$description/g" "$buildFile.tmp" > "$buildFile"
+rm "$buildFile.tmp"
+
+git init .
+
+popd > /dev/null
+
+"$SCRIPTS/create-sublime-project" "$MY_USERNAME $name"

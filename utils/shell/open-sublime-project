@@ -1,0 +1,14 @@
+#!/bin/zsh
+source "$(dirname $0)/common.sh"
+
+if [[ ! $* == *" "* ]]; then
+	project_name=$*
+	author=$MY_USERNAME
+	project_file_name=$(projectfilename "$author/$project_name")
+else
+	project_file_name=$(projectfilename "$(projectify $*)")
+fi
+
+complete_name="$PROJECTS_INFOS/$project_file_name.sublime-project"
+
+subl "$complete_name"

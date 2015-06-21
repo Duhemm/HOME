@@ -1,0 +1,22 @@
+#!/bin/zsh
+source "$(dirname $0)/common.sh"
+
+project=$(projectify "$*")
+
+mkdir -p "$PROJECTS/$project"
+
+has_terminal_running
+running=$?
+
+git clone git@github.com:$project.git $PROJECTS/$project
+
+if [[ running -eq 1 ]]; then
+    osascript -e 'tell application "Terminal" to activate'
+    osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down'
+    osascript -e "tell application \"Terminal\" to do script \"$clonecmd\""
+else
+    osascript -e 'tell application "Terminal" to activate'
+    osascript -e "tell application \"Terminal\" to do script \"$clonecmd\""
+fi
+
+"$SCRIPTS/create-sublime-project" "$*"
