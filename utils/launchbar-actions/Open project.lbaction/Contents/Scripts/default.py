@@ -30,7 +30,7 @@ def format_authors(authors):
         item['action'] = basename(__file__)
         item['actionArgument'] = author
         item['actionReturnsItems'] = True
-        item['icon'] = 'contacts.png'
+        item['icon'] = 'user.png'
         items.append(item)
 
     return items
@@ -44,7 +44,7 @@ def format_projects(author, projects):
         item['action'] = "run.py"
         item['actionArgument'] = '%s %s' % (author, project)
         item['alwaysShowsSubtitle'] = True
-        item['icon'] = 'xcode.png'
+        item['icon'] = 'vim.png'
         items.append(item)
 
     return items
