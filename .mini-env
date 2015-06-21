@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Use coreutils rather than OS X version of utils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# My projects...
+export PROJECTS="$HOME/Documents/Projects"
+export MY_USERNAME="Duhemm"
+
+# Sublime text
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
+# Scala related
+export PATH="$HOME/Applications/scala/scala-latest/bin:$PATH"
+export PATH="$HOME/Applications/sbt:$PATH"
+export PATH="$HOME/Applications/activator/activator-latest:$PATH"
+export PATH="$HOME/Applications/play/play-latest:$PATH"
+
+# My scripts
+export SCRIPTS="$HOME/utils/shell"
+export PATH="$SCRIPTS:$PATH"
+
+# My project templates
+export TEMPLATES="$HOME/utils/templates"
