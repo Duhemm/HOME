@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>Open project</string>
 	<key>LBDebugLogEnabled</key>
-	<true/>
+	<false/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -30,7 +30,7 @@
 				<string>string</string>
 			</array>
 			<key>LBKeepWindowActive</key>
-			<true/>
+			<false/>
 			<key>LBLiveFeedbackEnabled</key>
 			<true/>
 			<key>LBRequiresArgument</key>
@@ -38,7 +38,7 @@
 			<key>LBResultType</key>
 			<string>unknown</string>
 			<key>LBReturnsResult</key>
-			<true/>
+			<false/>
 			<key>LBScriptName</key>
 			<string>default.py</string>
 		</dict>
