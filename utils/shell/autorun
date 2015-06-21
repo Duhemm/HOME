@@ -1,0 +1,6 @@
+#!/bin/zsh
+source "$(dirname $0)/common.sh"
+
+if [ -f ".my_autorun" ]; then
+    . .my_autorun
+fi

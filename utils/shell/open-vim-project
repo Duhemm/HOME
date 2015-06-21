@@ -1,6 +1,6 @@
 #!/bin/zsh
 source "$(dirname $0)/common.sh"
 
-in-new-tab "cdp $*"
+in-new-tab "cdp $* && autorun"
 in-new-tab "cdp $* && vim"
 
