@@ -5,6 +5,7 @@ autoload -Uz compinit colors vcs_info
 colors
 
 # Completion
+fpath=($PROJECTS/Duhemm/scripts/completions $fpath) 
 fpath=(/Users/martin/Documents/Projects/zsh-users/zsh-completions/src $fpath)
 compinit
 setopt complete_in_word
@@ -57,7 +58,7 @@ alias pmscalac="scalac -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradi
 # Git prompt
 export GIT_PROMPT_EXECUTABLE="haskell"
 source /Users/martin/Documents/Projects/olivierverdier/zsh-git-prompt/zshrc.sh
-PROMPT='$(git_super_status)%{$fg[red]%}%1~%{$reset_color%} %{$fg[black]%}❯%{$reset_color%} '
+PROMPT='$(git_super_status)%{$fg[red]%}%1~%{$reset_color%} %{$fg[white]%}❯%{$reset_color%} '
 RPROMPT='%{$fg_bold[red]%}%T%{$reset_color%}'
 
 # Open new tabs in the same directory
@@ -89,6 +90,3 @@ source /Users/martin/Documents/Projects/zsh-users/zsh-syntax-highlighting/zsh-sy
 
 # Terminal notification for long running command
 source /Users/martin/Documents/Projects/marzocchi/zsh-notify/notify.plugin.zsh
-
-# My own completion scripts
-fpath=($PROJECTS/Duhemm/scripts/completions $fpath) 
