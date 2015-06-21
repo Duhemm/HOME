@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>xcode.png</string>
+	<string>vim.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.duhemm.LaunchBar.action.OpenProject</string>
 	<key>CFBundleName</key>
