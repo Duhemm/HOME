@@ -44,3 +44,11 @@ Thumbs.db
 *.log
 *.out
 *.synctex.gz
+
+# Others #
+##########
+tags
+
+# Vim #
+#######
+.*.swp
