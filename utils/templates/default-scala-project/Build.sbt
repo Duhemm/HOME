@@ -1,5 +1,5 @@
 lazy val sharedSettings = Defaults.defaultSettings ++ Seq(
-    scalaVersion := "2.11.6",
+    scalaVersion := "[SCALA_VERSION]",
     version := "0.0.1",
     organization := "org.duhemm",
     description := "[DESCRIPTION]"

@@ -15,7 +15,8 @@ export MY_USERNAME="Duhemm"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 # Scala related
-export PATH="$HOME/Applications/scala/scala-latest/bin:$PATH"
+export SCALA_VERSION="2.11.7"
+export PATH="$HOME/Applications/scala/scala-$SCALA_VERSION/bin:$PATH"
 export PATH="$HOME/Applications/sbt:$PATH"
 export PATH="$HOME/Applications/activator/activator-latest:$PATH"
 export PATH="$HOME/Applications/play/play-latest:$PATH"
