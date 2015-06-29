@@ -3,6 +3,9 @@
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# I don't use $EDITOR to avoid undesired interaction with other programs
+export MY_EDITOR="vim"
+
 # Use coreutils rather than OS X version of utils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

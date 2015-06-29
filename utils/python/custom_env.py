@@ -11,5 +11,8 @@ my_username = "Duhemm"
 
 github_token = ""
 
+open_project = join(scripts, "open-project")
 open_sublime_project = join(scripts, "open-sublime-project")
+open_vim_project = join(scripts, "open-vim-project")
 
+clone_from_github = join(scripts, "clone-github")
