@@ -47,7 +47,7 @@ alias switchj8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.j
 
 # Scala related
 alias scala="scala -Dscala.color"
-alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/target/sbt-launch-0.13.8-SNAPSHOT.jar"
+alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
 alias resetsbt="rm -rf ~/.sbt/boot/ && rm -rf ~/.ivy2/cache/org.scala-sbt/compiler-interface-bin_2.11.*"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
