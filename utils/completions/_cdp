@@ -11,7 +11,7 @@ _cdp() {
 
     case $state in
     authors)
-        compadd "$@" $(ls $PROJECTS $PROJECTS/Duhemm)
+        compadd "$@" $(ls $PROJECTS && ls $PROJECTS/Duhemm)
     ;;
     projects)
         compadd "$@" $(ls "$PROJECTS/$words[2]")
