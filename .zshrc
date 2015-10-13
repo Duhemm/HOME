@@ -43,12 +43,14 @@ alias grep="grep --color=auto"
 alias switchj6="export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s CurrentJDK Current && popd"
 alias switchj7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s A Current && popd"
 alias switchj8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home && pushd /System/Library/Frameworks/JavaVM.framework/Versions && sudo rm Current && sudo ln -s 1.8 Current && popd"
-
+alias firstModified="git status --porcelain | grep \" M \" | cut -d \" \" -f3 | head -n1"
+alias dn="clear; git diff \$(firstModified)"
+alias an="git add \$(firstModified)"
 
 # Scala related
 alias scala="scala -Dscala.color"
 alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
-alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.10-SNAPSHOT && rm -rf ~/.ivy2/cache/org.scala-sbt/compiler-interface-bin*"
+alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.10-SNAPSHOT"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
 alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
