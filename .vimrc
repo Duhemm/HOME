@@ -1,13 +1,13 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
@@ -17,6 +17,12 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
+
+  " Enable mouse support
+set mouse=a
+
+  " Automatically reload file
+set autoread
 
   " Show line numbers
 set number
@@ -114,7 +120,8 @@ if exists('g:colors_name') && g:colors_name == 'solarized'
         colorscheme solarized
     endif
 
-    call togglebg#map("<F2>")
+    " Used to be required - now it reports an error
+    " call togglebg#map("<F2>")
 endif
 
   " Ruler at 100th column
@@ -147,10 +154,9 @@ let g:airline_theme = 'solarized'
 
   " Shortcuts to use CtrlP
 nnoremap <leader>r :CtrlPTag<CR>
-nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>p :CtrlPMixed<CR>
 
-  " Use the current directory as root for CtrlP
-let g:ctrlp_working_path_mode = 1
+let g:ctrlp_working_path_mode = 'ra'
 
   " Use ag to retrieves files in CtrlP (much faster)
 let g:ctrlp_user_command = 'ag %s -i -u --nocolor --nogroup --hidden
@@ -162,6 +168,9 @@ let g:ctrlp_user_command = 'ag %s -i -u --nocolor --nogroup --hidden
       \ --ignore "**/*.class"
       \ --ignore "**/*.pyc"
       \ -g ""'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:gitgutter_realtime = 1
 
@@ -185,3 +194,8 @@ nnoremap <leader><TAB> :buffers<CR>:buffer<space>
   " Expand <CR> and space in delimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
+
+  " Use leader + g for go to definition
+nnoremap <leader>g <C-]>
+
+set hidden

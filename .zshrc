@@ -89,3 +89,10 @@ source $PROJECTS/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Terminal notification for long running command
 source $PROJECTS/marzocchi/zsh-notify/notify.plugin.zsh
+
+# Switch version of Java
+use-java () {
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.$1`
+}
+
+source $HOME/.sandbox
