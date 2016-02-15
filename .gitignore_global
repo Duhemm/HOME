@@ -53,6 +53,15 @@ tags
 #######
 .*.swp
 
+# IntelliJ #
+############
+.idea
+
+# Ensime #
+##########
+.ensime
+.ensime_cache
+
 # Personal stuff #
 ##################
 .my_autorun

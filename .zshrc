@@ -32,6 +32,9 @@ setopt share_history
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+# Emacs
+#alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
+
 # Various aliases
 alias -g ...="../.."
 alias cdp=". $SCRIPTS/cdp"
@@ -40,14 +43,15 @@ alias editprofile="vim -n $HOME/.zshrc"
 alias reloadprofile="source $HOME/.zshrc"
 alias editscripts="cd $SCRIPTS/.. && vim"
 alias grep="grep --color=auto"
-alias firstModified="git status --porcelain | grep \" M \" | cut -d \" \" -f3 | head -n1"
-alias dn="clear; git diff \$(firstModified)"
-alias an="git add \$(firstModified)"
+alias firstmodified="git status --porcelain | grep \" M \" | cut -d \" \" -f3 | head -n1"
+alias dn="clear; git diff \$(firstmodified)"
+alias an="git add \$(firstmodified)"
+alias mktags="ctags -R ."
 
 # Scala related
 alias scala="scala -Dscala.color"
 alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
-alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.10-SNAPSHOT"
+alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.10-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/compiler-interface-bin*"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
 alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
@@ -93,6 +97,11 @@ source $PROJECTS/marzocchi/zsh-notify/notify.plugin.zsh
 # Switch version of Java
 use-java () {
   export JAVA_HOME=`/usr/libexec/java_home -v 1.$1`
+}
+
+# Create build.properties file for sbt
+sbt-set-version () {
+  echo "sbt.version=$1" >> project/build.properties
 }
 
 source $HOME/.sandbox

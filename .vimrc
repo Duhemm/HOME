@@ -17,6 +17,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
+"Plugin 'ensime/ensime-vim'
+
 
   " Enable mouse support
 set mouse=a
@@ -55,7 +57,7 @@ set smartcase
 set incsearch
 
   " Shortcut to stop highlighting search results
-nnoremap <leader>h :nohlsearch<CR>
+map <leader>q :set hlsearch! hlsearch?<CR>
 
   " Always case-insensitive
 set ignorecase
@@ -159,15 +161,15 @@ nnoremap <leader>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'ra'
 
   " Use ag to retrieves files in CtrlP (much faster)
-let g:ctrlp_user_command = 'ag %s -i -u --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore target
-      \ --ignore "**/*.class"
-      \ --ignore "**/*.pyc"
-      \ -g ""'
+"let g:ctrlp_user_command = 'ag --g %s -i -u --nocolor --nogroup --hidden
+      "\ --ignore .git
+      "\ --ignore .svn
+      "\ --ignore .hg
+      "\ --ignore .DS_Store
+      "\ --ignore target
+      "\ --ignore "**/*.class"
+      "\ --ignore "**/*.pyc"
+      "\ -g ""'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -198,4 +200,9 @@ let delimitMate_expand_space = 1
   " Use leader + g for go to definition
 nnoremap <leader>g <C-]>
 
+  " Copy and cut
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
 set hidden
+
