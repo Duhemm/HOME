@@ -45,7 +45,7 @@ alias editscripts="cd $SCRIPTS/.. && vim"
 alias grep="grep --color=auto"
 alias firstmodified="git status --porcelain | grep \" M \" | cut -d \" \" -f3 | head -n1"
 alias dn="clear; git diff \$(firstmodified)"
-alias an="git add \$(firstmodified)"
+alias an="git add -- \$(firstmodified)"
 alias mktags="ctags -R ."
 
 # Scala related
