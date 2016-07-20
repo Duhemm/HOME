@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
@@ -56,9 +56,6 @@ set smartcase
   " Search as characters are entered
 set incsearch
 
-  " Shortcut to stop highlighting search results
-map <leader>q :set hlsearch! hlsearch?<CR>
-
   " Always case-insensitive
 set ignorecase
 
@@ -103,11 +100,11 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
   " Nice colors
 set term=xterm-256color
-set background=dark
+set background=light
 colorscheme solarized
 set t_Co=256
 
-  " Taken from https://github.com/altercation/solarized/issues/146
+" Taken from https://github.com/altercation/solarized/issues/146
 if exists('g:colors_name') && g:colors_name == 'solarized'
     " Text is unreadable with background transparency.
     if has('gui_macvim')
@@ -128,11 +125,10 @@ endif
 
   " Ruler at 100th column
 set colorcolumn=100
-highlight ColorColumn ctermbg=236
+"highlight ColorColumn ctermbg=254
 
   " Highlight current line
 set cursorline
-hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
 
   " Visual autocomplete menu
 set wildmenu
@@ -149,28 +145,25 @@ set tags=tags;/Users/martin
   " <leader>s to remove trailing white spaces
 nnoremap <leader>s :StripWhitespace<CR>
 
+  " Shortcut to stop highlighting search results
+noremap <leader>q :set hlsearch! hlsearch?<CR>
+
   " Always show statusline
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
+
+  " Show tabs using airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " Shortcuts to use CtrlP
 nnoremap <leader>r :CtrlPTag<CR>
 nnoremap <leader>p :CtrlPMixed<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-
-  " Use ag to retrieves files in CtrlP (much faster)
-"let g:ctrlp_user_command = 'ag --g %s -i -u --nocolor --nogroup --hidden
-      "\ --ignore .git
-      "\ --ignore .svn
-      "\ --ignore .hg
-      "\ --ignore .DS_Store
-      "\ --ignore target
-      "\ --ignore "**/*.class"
-      "\ --ignore "**/*.pyc"
-      "\ -g ""'
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
@@ -180,9 +173,9 @@ let g:gitgutter_realtime = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=236
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
+let g:indent_guides_auto_colors = 1
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=229
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=230
 
   " Show / hide NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
@@ -205,4 +198,10 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 set hidden
+
+  " Switch buffer using ctrl + cmd + left / right
+map <ESC>[1;5D :bp<CR>
+map <ESC>[1;5C :bn<CR>
+"nnoremap <M-TAB> :bp<CR>
+"nnoremmap <C-Left> :bn
 
