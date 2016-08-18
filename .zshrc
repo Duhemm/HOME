@@ -1,6 +1,6 @@
 autoload -Uz compinit colors vcs_info
 
-. ~/.mini-env
+. "$HOME/.mini-env"
 
 colors
 
@@ -36,17 +36,7 @@ bindkey '\e[B' history-search-forward
 #alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
 
 # Various aliases
-alias -g ...="../.."
-alias cdp=". $SCRIPTS/cdp"
-alias ls="ls --color=auto"
-alias editprofile="vim -n $HOME/.zshrc"
-alias reloadprofile="source $HOME/.zshrc"
-alias editscripts="cd $SCRIPTS/.. && vim"
-alias grep="grep --color=auto"
-alias firstmodified="git status --porcelain | grep \" M \" | cut -d \" \" -f3 | head -n1"
-alias dn="clear; git diff \$(firstmodified)"
-alias an="git add -- \$(firstmodified)"
-alias mktags="ctags -R ."
+. "$HOME/.aliases"
 
 # Scala related
 alias scala="scala -Dscala.color"

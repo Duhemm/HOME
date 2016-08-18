@@ -26,6 +26,7 @@ export PATH="$HOME/Applications/play/play-latest:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # My scripts
+export ALIASES="$HOME/.aliases"
 export SCRIPTS="$HOME/utils/shell"
 export PATH="$SCRIPTS:$PATH"
 

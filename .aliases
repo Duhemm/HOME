@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+. "$HOME/.mini-env"
+
+alias -g ...="../.."
+alias cdp=". $SCRIPTS/cdp"
+alias ls="ls --color=auto"
+alias editprofile="vim -n $HOME/.zshrc"
+alias reloadprofile="source $HOME/.zshrc"
+alias editscripts="cd $SCRIPTS/.. && vim"
+alias grep="grep --color=auto"
+alias dn="clear; git diff \$(gitmodified)"
+alias an="git add -- \$(gitmodified)"
+alias discard="git checkout -- \$(gitmodified)"
+alias mktags="ctags -R ."
+
+function gitmodified () {
+
+    if [[ -z "$1" ]]; then
+        offset=0
+    else
+        offset="$1"
+    fi
+
+    modified=$(git status --porcelain | grep " M \|MM " | cut -c 4-)
+    lines=$(echo "$modified" | wc -l)
+    tail_length=$(expr $lines - $offset)
+    echo $modified | tail -n $tail_length | head -n1
+}
+
