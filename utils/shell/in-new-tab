@@ -4,9 +4,28 @@ source "$(dirname $0)/common.sh"
 has_terminal_running
 running=$?
 
+
+
 if [[ running -eq 1 ]]; then
-    osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e "tell application \"Terminal\" to do script \"$*\" in selected tab of the front window" > /dev/null
+    OS=$(uname -o)
+    case $(uname -o) in
+        "Darwin")
+            osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e "tell application \"Terminal\" to do script \"$*\" in selected tab of the front window" > /dev/null
+            ;;
+        "GNU/Linux")
+            tmpscript=$(in_temp_file "$*\nzsh")
+            konsole --new-tab --e zsh --exec "$tmpscript"
+            ;;
+    esac
 else
-    osascript -e 'tell application "Terminal" to activate' -e "tell application \"Terminal\" to do script \"$*\" in selected tab of the front window" > /dev/null
+    case $(uname -o) in
+        "iDarwin")
+            osascript -e 'tell application "Terminal" to activate' -e "tell application \"Terminal\" to do script \"$*\" in selected tab of the front window" > /dev/null
+            ;;
+        "GNU/Linux")
+            tmpscript=$(in_temp_file "$*\nzsh")
+            konsole -e zsh --exec "$tmpscript"
+            ;;
+    esac
 fi
 
