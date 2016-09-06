@@ -19,7 +19,7 @@ if [[ running -eq 1 ]]; then
     esac
 else
     case $(uname -o) in
-        "iDarwin")
+        "Darwin")
             osascript -e 'tell application "Terminal" to activate' -e "tell application \"Terminal\" to do script \"$*\" in selected tab of the front window" > /dev/null
             ;;
         "GNU/Linux")
