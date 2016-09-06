@@ -50,7 +50,7 @@ alias pmscalac="scalac -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradi
 
 # Git prompt
 export GIT_PROMPT_EXECUTABLE="haskell"
-source $PROJECTS/olivierverdier/zsh-git-prompt/zshrc.sh
+source $PROJECTS/Duhemm/zsh-git-prompt/zshrc.sh
 PROMPT='$(git_super_status)%{$fg[red]%}%1~%{$reset_color%} %{$fg[white]%}❯%{$reset_color%} '
 RPROMPT='%{$fg_bold[red]%}%T%{$reset_color%}'
 
