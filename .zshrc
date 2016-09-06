@@ -41,7 +41,7 @@ bindkey '\e[B' history-search-forward
 # Scala related
 alias scala="scala -Dscala.color"
 alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
-alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.12-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-interface-*"
+alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.13-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-interface-*"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
 alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
