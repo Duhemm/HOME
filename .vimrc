@@ -18,6 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'ensime/ensime-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 
   " Enable mouse support
