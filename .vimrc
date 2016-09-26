@@ -8,7 +8,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'derekwyatt/vim-scala'
 " Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -19,6 +19,8 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'ensime/ensime-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'majutsushi/tagbar'
+
 
 
   " Enable mouse support
@@ -162,11 +164,19 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
   " Shortcuts to use CtrlP
 nnoremap <leader>r :CtrlPTag<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>o :CtrlPBufTag<CR>
 nnoremap <leader>p :CtrlPMixed<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+let g:ctrlp_cache_dir = './.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 
 let g:gitgutter_realtime = 1
 
