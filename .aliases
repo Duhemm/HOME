@@ -8,11 +8,13 @@ alias ls="ls --color=auto"
 alias editprofile="vim -n $HOME/.zshrc"
 alias reloadprofile="source $HOME/.zshrc"
 alias editscripts="cd $SCRIPTS/.. && vim"
+alias editaliases="vim -n $HOME/.aliases"
 alias grep="grep --color=auto"
 alias dn="clear; git diff \$(gitmodified)"
 alias an="git add -- \$(gitmodified)"
 alias discard="git checkout -- \$(gitmodified)"
 alias mktags="ctags -R ."
+alias todaydir="mkdir -p $(date +%Y/%m/%d)"
 
 function gitmodified () {
 
