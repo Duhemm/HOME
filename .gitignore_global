@@ -52,6 +52,7 @@ tags
 # Vim #
 #######
 .*.swp
+.cache
 
 # IntelliJ #
 ############
@@ -69,3 +70,4 @@ tags
 # Scala specific #
 ##################
 target/
+
