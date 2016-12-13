@@ -7,7 +7,6 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'derekwyatt/vim-scala'
-" Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
@@ -17,11 +16,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
-"Plugin 'ensime/ensime-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
-
-
 
   " Enable mouse support
 set mouse=a
@@ -103,17 +99,12 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
   " Nice colors
 set term=xterm-256color
-set background=light
+set background=dark
 colorscheme solarized
 set t_Co=256
 
 " Taken from https://github.com/altercation/solarized/issues/146
 if exists('g:colors_name') && g:colors_name == 'solarized'
-    " Text is unreadable with background transparency.
-    if has('gui_macvim')
-        set transparency=0
-    endif
-
     " Highlighted text is unreadable in Terminal.app because it
     " does not support setting of the cursor foreground color.
     if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
@@ -121,9 +112,6 @@ if exists('g:colors_name') && g:colors_name == 'solarized'
         let g:solarized_termtrans = 1
         colorscheme solarized
     endif
-
-    " Used to be required - now it reports an error
-    " call togglebg#map("<F2>")
 endif
 
   " Ruler at 100th column
@@ -159,8 +147,6 @@ let g:airline_theme = 'solarized'
   " Show tabs using airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " Shortcuts to use CtrlP
 nnoremap <leader>r :CtrlPTag<CR>
@@ -168,16 +154,21 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPBufTag<CR>
 nnoremap <leader>p :CtrlPMixed<CR>
 
+   " Use ctrlp from the nearest .git ancestor
 let g:ctrlp_working_path_mode = 'ra'
+
+   " Exclude these from ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:ctrlp_cache_dir = './.cache/ctrlp'
+
+   " Use ag to make ctrlp faster.
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-
+  " Update git gutter in realtime
 let g:gitgutter_realtime = 1
 
   " Indentation guides
@@ -185,8 +176,8 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=229
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=230
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=229
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=230
 
   " Show / hide NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
