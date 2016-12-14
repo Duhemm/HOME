@@ -207,3 +207,11 @@ map <ESC>[1;5C :bn<CR>
 "nnoremap <M-TAB> :bp<CR>
 "nnoremmap <C-Left> :bn
 
+  " Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
+  " Show unsaved changes
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
