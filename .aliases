@@ -14,7 +14,18 @@ alias dn="clear; git diff \$(gitmodified)"
 alias an="git add -- \$(gitmodified)"
 alias discard="git checkout -- \$(gitmodified)"
 alias mktags="ctags -R ."
-alias todaydir="mkdir -p $(date +%Y/%m/%d)"
+alias todaydir="mkdir -p \$(date +%Y/%m/%d)"
+
+function tim () {
+    if [[ -z "$2" ]]; then
+        count=10
+    else
+        count="$2"
+    fi
+    for x in {1.."$count"}; do
+        echo -n "$1" && time "$1"
+    done
+}
 
 function gitmodified () {
 
