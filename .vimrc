@@ -18,6 +18,14 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'ensime/ensime-vim'
+Plugin 'mtth/scratch.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
   " Enable mouse support
 set mouse=a
@@ -181,6 +189,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=230
 
   " Show / hide NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
+  " Focus NERDTree with ,kf
+nnoremap <leader>kf :NERDTreeFocus<CR>
+  " Show in NERDTree with ,ks
+nnoremap <leader>ks :NERDTreeFind<CR>
 
   " Shortcuts to manage panes and buffers
 nnoremap <leader>w <C-w>
@@ -201,9 +213,13 @@ vmap <C-c> :w !pbcopy<CR><CR>
 
 set hidden
 
-  " Switch buffer using ctrl + cmd + left / right
-map <ESC>[1;5D :bp<CR>
-map <ESC>[1;5C :bn<CR>
+  " Switch buffer using ctrl + left / right
+map <C-Right> :bn<CR>
+map <C-Left> :bp<CR>
+imap <C-Right> <ESC>:bn<CR>i
+imap <C-Left> <ESC>:bp<CR>i
+"map <ESC>[1;5D :bp<CR>
+"map <ESC>[1;5C :bn<CR>
 "nnoremap <M-TAB> :bp<CR>
 "nnoremmap <C-Left> :bn
 
@@ -215,3 +231,33 @@ endif
 
   " Show unsaved changes
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+
+  " Use ag for vimgrep
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+  " Close buffers with <leader>c
+map <leader>c :BD<CR>
+
+  " Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+  " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+  " Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+  " Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+  " Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+  " Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+  " Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
