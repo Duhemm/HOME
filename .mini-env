@@ -11,7 +11,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # My projects...
-export PROJECTS="$HOME/Documents/Projects"
+export PROJECTS="$HOME/Documents/Projects.nosync"
 export MY_USERNAME="Duhemm"
 
 # Sublime text

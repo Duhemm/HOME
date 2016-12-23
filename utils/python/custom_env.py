@@ -4,7 +4,7 @@
 # to know where to copy me.
 from os.path import join
 
-projects = "/Users/martin/Documents/Projects"
+projects = "/Users/martin/Documents/Projects.nosync"
 scripts = "/Users/martin/utils/shell"
 
 my_username = "Duhemm"
