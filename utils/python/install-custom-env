@@ -1,5 +1,3 @@
 #!/bin/zsh
 
-destination=$(python -c "from distutils.sysconfig import *; print(get_python_lib())")
-
-sudo cp custom_env.py "$destination"
+sudo cp custom_env.py "$(python -m site --user-site)"

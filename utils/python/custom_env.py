@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # Please make me available system-wide
-# Run `python -c "from distutils.sysconfig import *; print(get_python_lib())"`
-# to know where to copy me.
+# Run `install-custom-env` to install this file where it needs to be.
 from os.path import join
 
 projects = "/Users/martin/Documents/Projects.nosync"
