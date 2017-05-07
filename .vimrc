@@ -186,8 +186,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=229
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=230
 
   " Show / hide NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
@@ -213,6 +211,7 @@ nnoremap <leader>g <C-]>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
+  " Hide buffers instead of closing them when switching file.
 set hidden
 
   " Switch buffer using ctrl + left / right
@@ -220,16 +219,6 @@ map <C-Right> :bn<CR>
 map <C-Left> :bp<CR>
 imap <C-Right> <ESC>:bn<CR>i
 imap <C-Left> <ESC>:bp<CR>i
-"map <ESC>[1;5D :bp<CR>
-"map <ESC>[1;5C :bn<CR>
-"nnoremap <M-TAB> :bp<CR>
-"nnoremmap <C-Left> :bn
-
-  " Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
 
   " Show unsaved changes
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
@@ -239,8 +228,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-  " Close buffers with <leader>c
-map <leader>c :BD<CR>
+  " Close buffers with <leader>x
+map <leader>x :BD<CR>
+map <leader>X :bufdo BD<CR>
 
   " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
