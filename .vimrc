@@ -28,6 +28,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
+Plugin 'morhetz/gruvbox'
 
   " Enable mouse support
 set mouse=a
@@ -110,19 +111,20 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
   " Nice colors
 set term=xterm-256color
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme gruvbox
 set t_Co=256
 
 " Taken from https://github.com/altercation/solarized/issues/146
-if exists('g:colors_name') && g:colors_name == 'solarized'
-    " Highlighted text is unreadable in Terminal.app because it
-    " does not support setting of the cursor foreground color.
-    if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
-        let g:solarized_termcolors = &t_Co
-        let g:solarized_termtrans = 1
-        colorscheme solarized
-    endif
-endif
+" if exists('g:colors_name') && g:colors_name == 'solarized'
+"     " Highlighted text is unreadable in Terminal.app because it
+"     " does not support setting of the cursor foreground color.
+"     if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
+"         let g:solarized_termcolors = &t_Co
+"         let g:solarized_termtrans = 1
+"         colorscheme solarized
+"     endif
+" endif
 
   " Ruler at 100th column
 set colorcolumn=100
@@ -152,7 +154,7 @@ noremap <leader>q :set hlsearch! hlsearch?<CR>
   " Always show statusline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'gruvbox'
 
   " Show tabs using airline
 let g:airline#extensions#tabline#enabled = 1

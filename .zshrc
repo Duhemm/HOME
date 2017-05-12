@@ -41,7 +41,7 @@ bindkey '\e[B' history-search-forward
 # Scala related
 alias scala="scala -Dscala.color"
 alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
-alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.13-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-interface-*"
+alias resetsbt="rm -rf ~/.sbt/boot/scala-2.12.1/org.scala-sbt/sbt/1.0.0-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-bridge_*"
 alias rst="resetsbt && xsbt"
 alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
 alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
@@ -82,7 +82,7 @@ alias sshell="HADOOP_CONF_DIR=/usr/local/Cellar/hadoop/2.7.0/libexec/etc/hadoop 
 source $PROJECTS/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Terminal notification for long running command
-source $PROJECTS/marzocchi/zsh-notify/notify.plugin.zsh
+# source $PROJECTS/marzocchi/zsh-notify/notify.plugin.zsh
 
 # Switch version of Java
 use-java () {
