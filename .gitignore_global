@@ -220,6 +220,7 @@ tags
 #######
 .*.swp
 .cache
+*.swo
 
 # IntelliJ #
 ############

@@ -2,7 +2,7 @@
 	name = Martin Duhem
 	email = martin.duhem@gmail.com
 [core]
-	excludesfile = /Users/martin/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

@@ -15,7 +15,7 @@ export PROJECTS="$HOME/Documents/Projects.nosync"
 export MY_USERNAME="Duhemm"
 
 # Sublime text
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="$HOME/Applications/Sublime Text:$PATH"
 
 # Scala related
 export SCALA_VERSION="2.12.1"
@@ -26,8 +26,9 @@ export PATH="$HOME/Applications/activator/activator-latest:$PATH"
 export PATH="$HOME/Applications/play/play-latest:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-# Spark
-export PATH="$HOME/Applications/spark-2.0.1-bin-hadoop2.7/bin:$PATH"
+# Spark & Hadoop
+export PATH="$HOME/Applications/spark/spark-2.0.1-bin-hadoop2.7/bin:$PATH"
+export PATH="$HOME/Applications/hadoop/hadoop-2.7.3/bin:$HOME/Applications/hadoop/hadoop-2.7.3/sbin:$PATH"
 
 # My scripts
 export ALIASES="$HOME/.aliases"

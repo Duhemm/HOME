@@ -132,6 +132,7 @@ set colorcolumn=100
 
   " Highlight current line
 set cursorline
+"hi CursorLine cterm=NONE ctermbg=234
 
   " Visual autocomplete menu
 set wildmenu
@@ -254,4 +255,7 @@ let g:NERDCommentEmptyLines = 1
 
   " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+  " Disable annoying visual bell
+set t_vb=""
 

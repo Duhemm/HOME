@@ -27,6 +27,19 @@ function tim () {
     done
 }
 
+function tim () {
+    if [[ -z "$2" ]]
+    then
+        count=10
+    else
+        count="$2"
+    fi
+    for x in {1.."$count"}
+    do
+        echo -n "$1" && time "$1"
+    done
+}
+
 function gitmodified () {
 
     if [[ -z "$1" ]]; then

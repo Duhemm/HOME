@@ -32,6 +32,10 @@ setopt share_history
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+# Move a whole word with ctrl + arrows
+bindkey '\e[1;5D' backward-word
+bindkey '\e[1;5C' forward-word
+
 # Emacs
 #alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
 
@@ -40,13 +44,13 @@ bindkey '\e[B' history-search-forward
 
 # Scala related
 alias scala="scala -Dscala.color"
-alias xsbt="sbt -sbt-jar /Users/martin/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
-alias resetsbt="rm -rf ~/.sbt/boot/scala-2.12.1/org.scala-sbt/sbt/1.0.0-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-bridge_*"
+alias xsbt="sbt -sbt-jar $HOME/Documents/Projects/Duhemm/sbt/launch/target/sbt-launch.jar"
+alias resetsbt="rm -rf ~/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.13-SNAPSHOT/ && rm -rf ~/.ivy2/cache/org.scala-sbt/org.scala-sbt-compiler-interface-*"
 alias rst="resetsbt && xsbt"
-alias qsc="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
-alias qs="/Users/martin/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
-alias pmscala="scala -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:/Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp /Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:. -Dscala.color"
-alias pmscalac="scalac -Xplugin:/Users/martin/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:/Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp /Users/martin/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:sandbox:."
+alias qsc="$HOME/Documents/Projects/Duhemm/scala/build/quick/bin/scalac -language:experimental.macros -d sandbox -Dscala.color"
+alias qs="$HOME/Documents/Projects/Duhemm/scala/build/quick/bin/scala -language:experimental.macros -cp sandbox -Dscala.color"
+alias pmscala="scala -Xplugin:$HOME/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:$HOME/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp $HOME/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:. -Dscala.color"
+alias pmscalac="scalac -Xplugin:$HOME/.ivy2/cache/org.scalamacros/paradise_2.11.6/jars/paradise_2.11.6-2.1.0-M5.jar -Xplugin:$HOME/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar -cp $HOME/Documents/Projects/Duhemm/parsermacro/plugin/target/scala-2.11/fat-plugin.jar:sandbox:."
 
 # Git prompt
 export GIT_PROMPT_EXECUTABLE="haskell"
@@ -95,3 +99,4 @@ sbt-set-version () {
 }
 
 source $HOME/.sandbox
+
