@@ -4,5 +4,4 @@ source "$(dirname $0)/common.sh"
 llFile="$1"
 temp=$(tempfile)
 opt -O2 -o "$temp" "$llFile"
-echo "Optimized "
 llvm-dis -o="$llFile.opt" "$temp"
