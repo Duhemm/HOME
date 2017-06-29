@@ -1,6 +1,7 @@
 [user]
 	name = Martin Duhem
 	email = martin.duhem@gmail.com
+	signingkey = 3597849FE13A796F7B5CD5D2CC9CE9656E10C555
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
@@ -40,3 +41,7 @@
 
 [push]
 	default = simple
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2

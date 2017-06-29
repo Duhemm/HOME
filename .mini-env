@@ -19,7 +19,7 @@ export PATH="$HOME/Applications/Sublime Text:$PATH"
 
 # Scala related
 export SCALA_VERSION="2.12.1"
-export PATH="/usr/local/Cellar/llvm/3.9.0/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/Applications/scala/scala-$SCALA_VERSION/bin:$PATH"
 export PATH="$HOME/Applications/sbt:$PATH"
 export PATH="$HOME/Applications/activator/activator-latest:$PATH"

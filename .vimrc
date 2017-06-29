@@ -20,7 +20,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
-" Plugin 'ensime/ensime-vim'
+Plugin 'ensime/ensime-vim'
 Plugin 'mtth/scratch.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -259,3 +259,5 @@ let g:NERDTrimTrailingWhitespace = 1
   " Disable annoying visual bell
 set t_vb=""
 
+nnoremap <leader>t :EnTypeCheck<CR>
+au FileType scala nnoremap <leader>df :EnDeclaration<CR>

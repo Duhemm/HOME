@@ -100,3 +100,5 @@ sbt-set-version () {
 
 source $HOME/.sandbox
 
+# Required for gpg to work:
+export GPG_TTY=$(tty)
