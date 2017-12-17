@@ -22,3 +22,5 @@ bind ^l focus right
 defscrollback 10000
 
 startup_message off
+
+bind -n C-k clear-history
