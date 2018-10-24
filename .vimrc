@@ -3,35 +3,32 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'bling/vim-airline'
+Plugin 'VundleVim/Vundle.vim'              " Package manager
+
+Plugin 'airblade/vim-gitgutter'            " Git diff in gutter
+Plugin 'tpope/vim-fugitive'                " Git wrapper
+
+Plugin 'scrooloose/nerdtree'               " File explorer
+Plugin 'Xuyuanp/nerdtree-git-plugin'       " Show git status in NERD tree
+Plugin 'ctrlpvim/ctrlp.vim'                " Open files with <leader>-p
+Plugin 'qpkorr/vim-bufkill'                " Close buffer but keep split
+
+Plugin 'scrooloose/nerdcommenter'          " Manage comments
+Plugin 'ntpeters/vim-better-whitespace'    " Highlight and strip whitespace
+Plugin 'nathanaelkane/vim-indent-guides'   " Visually display indent levels
+Plugin 'Raimondi/delimitMate'              " Auto completion for parens, quotes, etc.
+Plugin 'terryma/vim-multiple-cursors'      " Multi-cursor like in sublime
+Plugin 'majutsushi/tagbar'                 " Outline viewer
+
+Plugin 'derekwyatt/vim-scala'              " Vim Scala integration
+Plugin 'leafgarland/typescript-vim'        " Vim Typescript integration
+Plugin 'lervag/vimtex'                     " Vim LaTeX integration
+Plugin 'natebosch/vim-lsc'                 " LSP client
+
+Plugin 'vim-airline/vim-airline'           " Tabline
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'Raimondi/delimitMate'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'majutsushi/tagbar'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'mileszs/ack.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'lervag/vimtex'
-Plugin 'morhetz/gruvbox'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'natebosch/vim-lsc'
-" Plugin 'prabirshrestha/async.vim'
-" Plugin 'prabirshrestha/vim-lsp'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'mhartington/oceanic-next'
-Plugin 'jdkanani/vim-material-theme'
+Plugin 'ryanoasis/vim-devicons'            " File type icons
+Plugin 'morhetz/gruvbox'                   " Color scheme
 
 set encoding=UTF-8
 
@@ -116,27 +113,9 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
   " Nice colors
 set term=xterm-256color
 set background=dark
-" colorscheme solarized
-" colorscheme gruvbox
 set t_Co=256
 
-" for vim 8
- " if (has("termguicolors"))
- "  set termguicolors
- " endif
-
-colorscheme OceanicNext
-
-" Taken from https://github.com/altercation/solarized/issues/146
-" if exists('g:colors_name') && g:colors_name == 'solarized'
-"     " Highlighted text is unreadable in Terminal.app because it
-"     " does not support setting of the cursor foreground color.
-"     if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
-"         let g:solarized_termcolors = &t_Co
-"         let g:solarized_termtrans = 1
-"         colorscheme solarized
-"     endif
-" endif
+colorscheme gruvbox
 
   " Ruler at 100th column
 set colorcolumn=100
@@ -148,10 +127,6 @@ set cursorline
 
   " Visual autocomplete menu
 set wildmenu
-
-  " Don't automatically check syntax of Scala files on save
-let g:syntastic_mode_map = { "mode": "active",
-                           \ "passive_filetype": ["scala"] }
 
   " Set leader key to ","
 let mapleader=","
@@ -167,7 +142,7 @@ noremap <leader>q :set hlsearch! hlsearch?<CR>
   " Always show statusline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'oceanicnext'
+let g:airline_theme = 'gruvbox'
 
   " Show tabs using airline
 let g:airline#extensions#tabline#enabled = 1
@@ -183,7 +158,7 @@ nnoremap <leader>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'ra'
 
    " Exclude these from ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux"
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:ctrlp_cache_dir = './.cache/ctrlp'
@@ -238,11 +213,6 @@ imap <C-Left> <ESC>:bp<CR>i
   " Show unsaved changes
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-  " Use ag for vimgrep
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
   " Close buffers with <leader>x
 map <leader>x :BD<CR>
 map <leader>X :bufdo BD<CR>
@@ -278,12 +248,6 @@ let g:tagbar_width = 30
 set completeopt-=preview
 let g:lsc_server_commands = {'scala': "/Users/martin/utils/shell/start-scala-lsp", 'typescript': "typescript-language-server --stdio"}
 let g:lsc_auto_map = v:true " Use defaults
-    " pip install python-language-server
-" au User lsp_setup call lsp#register_server({
-"     \ 'name': 'dotty-ide',
-"     \ 'cmd': {server_info->['start-dotty-ide']},
-"     \ 'whitelist': ['scala'],
-"     \ })
 
 " Use <C-j/k> for going down/up in completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
