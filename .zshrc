@@ -28,6 +28,9 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
+# Vim mode
+bindkey -v
+
 # Browse history using up/down arrows
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
@@ -102,3 +105,6 @@ source $HOME/.sandbox
 
 # Required for gpg to work:
 export GPG_TTY=$(tty)
+
+# added by travis gem
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"

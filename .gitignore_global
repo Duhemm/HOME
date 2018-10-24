@@ -238,4 +238,6 @@ tags
 # Scala specific #
 ##################
 target/
-
+.bloop
+.metals
+project/bloop.sbt

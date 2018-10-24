@@ -3,7 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'derekwyatt/vim-scala'
@@ -20,15 +20,20 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'ensime/ensime-vim'
-Plugin 'mtth/scratch.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
 Plugin 'morhetz/gruvbox'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'natebosch/vim-lsc'
+" Plugin 'prabirshrestha/async.vim'
+" Plugin 'prabirshrestha/vim-lsp'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'mhartington/oceanic-next'
+Plugin 'jdkanani/vim-material-theme'
+
+set encoding=UTF-8
 
   " Enable mouse support
 set mouse=a
@@ -112,8 +117,15 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 set term=xterm-256color
 set background=dark
 " colorscheme solarized
-colorscheme gruvbox
+" colorscheme gruvbox
 set t_Co=256
+
+" for vim 8
+ " if (has("termguicolors"))
+ "  set termguicolors
+ " endif
+
+colorscheme OceanicNext
 
 " Taken from https://github.com/altercation/solarized/issues/146
 " if exists('g:colors_name') && g:colors_name == 'solarized'
@@ -132,7 +144,7 @@ set colorcolumn=100
 
   " Highlight current line
 set cursorline
-"hi CursorLine cterm=NONE ctermbg=234
+" hi CursorLine cterm=NONE ctermbg=234
 
   " Visual autocomplete menu
 set wildmenu
@@ -155,7 +167,7 @@ noremap <leader>q :set hlsearch! hlsearch?<CR>
   " Always show statusline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'oceanicnext'
 
   " Show tabs using airline
 let g:airline#extensions#tabline#enabled = 1
@@ -259,5 +271,27 @@ let g:NERDTrimTrailingWhitespace = 1
   " Disable annoying visual bell
 set t_vb=""
 
-nnoremap <leader>t :EnTypeCheck<CR>
-au FileType scala nnoremap <leader>df :EnDeclaration<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+let g:tagbar_width = 30
+
+" natebosch's LSP client
+set completeopt-=preview
+let g:lsc_server_commands = {'scala': "/Users/martin/utils/shell/start-scala-lsp", 'typescript': "typescript-language-server --stdio"}
+let g:lsc_auto_map = v:true " Use defaults
+    " pip install python-language-server
+" au User lsp_setup call lsp#register_server({
+"     \ 'name': 'dotty-ide',
+"     \ 'cmd': {server_info->['start-dotty-ide']},
+"     \ 'whitelist': ['scala'],
+"     \ })
+
+" Use <C-j/k> for going down/up in completion menu
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Discard preview window when the cursor is moved
+autocmd CursorMoved * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Typescript stuff
+autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2

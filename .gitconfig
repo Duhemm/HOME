@@ -45,3 +45,7 @@
 	gpgsign = true
 [gpg]
 	program = gpg
+[log]
+	date = relative
+[blame]
+	date = relative
