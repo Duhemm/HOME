@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -d ".metals" ]; then
+    scalameta_lsp-snapshot
+elif [ -f ".dotty-ide.json" ]; then
+    start-dotty-ide
+fi

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ARTIFACT="$(cat .dotty-ide-artifact)"
+/usr/local/bin/coursier launch "$ARTIFACT" -M dotty.tools.languageserver.Main -- -stdio 2> /Users/martin/dotty-log-err.txt | tee /Users/martin/dotty-log-out.txt
