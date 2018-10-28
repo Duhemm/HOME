@@ -35,5 +35,8 @@ export ALIASES="$HOME/.aliases"
 export SCRIPTS="$HOME/utils/shell"
 export PATH="$SCRIPTS:$PATH"
 
+# Go stuff
+export PATH="$HOME/go/bin:$PATH"
+
 # My project templates
 export TEMPLATES="$HOME/utils/templates"

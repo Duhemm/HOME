@@ -246,7 +246,11 @@ let g:tagbar_width = 30
 
 " natebosch's LSP client
 set completeopt-=preview
-let g:lsc_server_commands = {'scala': "/Users/martin/utils/shell/start-scala-lsp", 'typescript': "typescript-language-server --stdio"}
+let g:lsc_server_commands = {
+\ 'scala': "/Users/martin/utils/shell/start-scala-lsp",
+\ 'typescript': "typescript-language-server --stdio",
+\ 'go': "/Users/martin/go/bin/go-langserver -diagnostics -format-tool gofmt -gocodecompletion -lint-tool golint -mode stdio"
+\ }
 let g:lsc_auto_map = v:true " Use defaults
 
 " Use <C-j/k> for going down/up in completion menu
@@ -259,3 +263,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Typescript stuff
 autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+" Go stuff
+autocmd Filetype go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
