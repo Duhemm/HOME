@@ -252,6 +252,9 @@ let g:lsc_server_commands = {
 \ 'go': "/Users/martin/go/bin/go-langserver -diagnostics -format-tool gofmt -gocodecompletion -lint-tool golint -mode stdio"
 \ }
 let g:lsc_auto_map = v:true " Use defaults
+" Underline `textDocument/documentHighlight`
+highlight lscReference cterm=underline
+
 
 " Use <C-j/k> for going down/up in completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -266,3 +269,4 @@ autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabsto
 
 " Go stuff
 autocmd Filetype go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+
