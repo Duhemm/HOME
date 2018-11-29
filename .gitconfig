@@ -38,6 +38,7 @@
               }; \
               f"
     last = log -1 HEAD
+    delete-merged = !git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d
 
 [push]
 	default = simple

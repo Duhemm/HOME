@@ -18,7 +18,7 @@ export MY_USERNAME="Duhemm"
 export PATH="$HOME/Applications/Sublime Text:$PATH"
 
 # Scala related
-export SCALA_VERSION="2.12.4"
+export SCALA_VERSION="2.13.0-M5"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/Applications/scala/scala-$SCALA_VERSION/bin:$PATH"
 export PATH="$HOME/Applications/sbt:$PATH"

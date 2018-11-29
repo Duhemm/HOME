@@ -240,16 +240,23 @@ nnoremap <leader>t :TagbarToggle<CR>
 let g:tagbar_width = 30
 
 " natebosch's LSP client
-set completeopt-=preview
+set completeopt=menu,menuone,longest
 let g:lsc_server_commands = {
 \ 'scala': "/Users/martin/utils/shell/start-scala-lsp",
 \ 'typescript': "typescript-language-server --stdio",
 \ 'go': "/Users/martin/go/bin/go-langserver -diagnostics -format-tool gofmt -gocodecompletion -lint-tool golint -mode stdio"
 \ }
-let g:lsc_auto_map = v:true " Use defaults
-" Underline `textDocument/documentHighlight`
-highlight lscReference cterm=underline
 
+let g:lsc_auto_map = v:true " Use defaults
+
+" Underline `textDocument/documentHighlight` and current param in `textDocument/signatureHelp`
+highlight lscReference cterm=underline
+highlight lscCurrentParameter cterm=underline
+
+" Enter selects the highlighted completion when the menu is shown
+imap <expr> <CR> pumvisible()
+                 \ ? "\<C-Y>"
+                 \ : "<Plug>delimitMateCR"
 
 " Use <C-j/k> for going down/up in completion menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
