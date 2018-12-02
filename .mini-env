@@ -38,5 +38,10 @@ export PATH="$SCRIPTS:$PATH"
 # Go stuff
 export PATH="$HOME/go/bin:$PATH"
 
+# Ruby stuff
+export GEM_HOME=~/.gem
+export GEM_PATH=~/.gem
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # My project templates
 export TEMPLATES="$HOME/utils/templates"
