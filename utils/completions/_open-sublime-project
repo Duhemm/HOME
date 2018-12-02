@@ -1,3 +1,0 @@
-#compdef open-sublime-project
-
-_cdp "$@"

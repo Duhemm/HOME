@@ -2,32 +2,17 @@
 
 . "$HOME/.mini-env"
 
-alias -g ...="../.."
 alias cdp=". $SCRIPTS/cdp"
 alias ls="ls --color=auto"
 alias editprofile="vim -n $HOME/.zshrc"
 alias reloadprofile="source $HOME/.zshrc"
-alias editscripts="cd $SCRIPTS/.. && vim"
-alias editaliases="vim -n $HOME/.aliases"
 alias grep="grep --color=auto"
 alias dn="clear; git diff \$(gitmodified)"
 alias an="git add -- \$(gitmodified)"
 alias anp="git add -p -- \$(gitmodified)"
 alias discard="git checkout -- \$(gitmodified)"
 alias mktags="ctags -R ."
-alias todaydir="mkdir -p \$(date +%Y/%m/%d)"
 alias xbloop="bloop --nailgun-port=8181"
-
-function tim () {
-    if [[ -z "$2" ]]; then
-        count=10
-    else
-        count="$2"
-    fi
-    for x in {1.."$count"}; do
-        echo -n "$1" && time "$1"
-    done
-}
 
 function tim () {
     if [[ -z "$2" ]]

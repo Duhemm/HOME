@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-sudo cp custom_env.py "$(python -m site --user-site)"

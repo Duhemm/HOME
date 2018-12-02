@@ -1,3 +1,0 @@
-#compdef open-vim-project
-
-_cdp "$@"

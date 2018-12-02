@@ -1,4 +1,0 @@
-#!/bin/zsh
-source "$(dirname $0)/common.sh"
-
-"open-$MY_EDITOR-project" "$*"
