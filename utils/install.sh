@@ -25,6 +25,7 @@ brew install \
 
 # Set up zsh
 clone-github zsh-users zsh-completions
+clone-github zsh-users zsh-syntax-highlighting
 clone-github Duhemm zsh-git-prompt
 pushd "$PROJECTS/Duhemm/zsh-git-prompt"
 git fetch origin custom

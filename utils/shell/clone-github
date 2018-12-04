@@ -5,8 +5,4 @@ project=$(projectify "$*")
 
 mkdir -p "$PROJECTS/$project"
 
-clonecmd="git clone git@github.com:$project.git $PROJECTS/$project"
-
-in-new-tab "$clonecmd"
-
-"$SCRIPTS/create-sublime-project" "$*"
+git clone git@github.com:$project.git $PROJECTS/$project
